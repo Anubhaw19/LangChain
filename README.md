@@ -1,0 +1,1 @@
+- Rate Limit (Gemini) : https://ai.google.dev/gemini-api/docs/rate-limits
