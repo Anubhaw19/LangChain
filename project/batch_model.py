@@ -4,12 +4,13 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain.output_parsers import StructuredOutputParser, ResponseSchema
+from langchain_core.runnables import RunnableConfig
 
 load_dotenv()
 
 df = pd.read_csv('model_data.csv')
 
-model = ChatGoogleGenerativeAI(model = 'gemini-2.5-flash')
+model = ChatGoogleGenerativeAI(model = 'gemini-2.0-flash')
 
 schema = [
     ResponseSchema(name = 'Brand', description = "Brand of the mobile model"),
@@ -23,27 +24,34 @@ schema = [
 parser = StructuredOutputParser.from_response_schemas(schema)
 
 template = PromptTemplate(
-    template = 'Give the specification of {brand_name} brand, {model_name} model. \n {format_instruction}',
+    template = 'Give the specification of the following {brand_name} brand, {model_name} models. \n {format_instruction}',
     input_variables = ['brand_name','model_name'],
     partial_variables = {'format_instruction': parser.get_format_instructions()}
 )
-
 chain = template | model | parser
-# result = chain.invoke({'brand_name': 'apple','model_name': 'iPhone 16 plus'})
-# print(result)
 
 LLM_Responses =[]
+batch_df = df.iloc[:3]
 
-for index, row in df.iterrows():
-    brand_name = {row['Device Make']}
-    model_name = {row['Device Model']}
-    print(f"Row {index}: brand_name={brand_name}, model_name={model_name}")
-    result = chain.invoke({'brand_name': brand_name,'model_name': model_name})
-    LLM_Responses.append(result)
-    if index == 11:
+batch_size = 3 # define batch size
+for row_number in range(0,df.shape[0],batch_size):
+    if row_number>15: # TODO: remove before running to fetch all model data
         break
-    time.sleep(4)
+    batch_df = df.iloc[row_number : row_number + batch_size]
 
+    batch_inputs = [
+        {'brand_name': row['Device Make'], 'model_name': row['Device Model']}
+        for _, row in batch_df.iterrows()
+    ]
+    print('processing row: ',row_number, ':',row_number+batch_size)
+    results = chain.batch(batch_inputs, config=RunnableConfig(max_concurrency=5))
+
+    for data in results:
+        LLM_Responses.append(data)
+    time.sleep(30) #waiting for 30 sec to avoid rate limit exceed (RPM) (for more details check here :https://ai.google.dev/gemini-api/docs/rate-limits#free-tier)
+    
 output_df = pd.DataFrame(LLM_Responses)
+output_df.to_csv('output_batch.csv', index=False)
+
 print(output_df.head())
-output_df.to_csv('output.csv', index=False)
+
