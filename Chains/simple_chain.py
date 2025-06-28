@@ -5,18 +5,18 @@ from langchain_core.output_parsers import StrOutputParser
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model = 'gemini-2.0-flash')
+model = ChatGoogleGenerativeAI(model = 'gemini-2.5-pro')
 
 prompt = PromptTemplate(
-    template = 'Generate 2 interesting point about the {topic}',
-    input_variables = ['topic']
+    template = 'current weather of {city}',
+    input_variables = ['city']
 )
 
 parser = StrOutputParser()
 
 chain = prompt | model | parser
-result = chain.invoke({'topic':'cricket'})
+result = chain.invoke({'city':'Mumbai,Maharashtra,India'})
 
 print(result)
 
-chain.get_graph().print_ascii()
+# chain.get_graph().print_ascii()

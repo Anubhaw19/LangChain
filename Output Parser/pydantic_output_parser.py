@@ -18,12 +18,12 @@ class Mobile(BaseModel):
 parser = PydanticOutputParser(pydantic_object = Mobile)
 
 template = PromptTemplate(
-    template = 'Give the specification of {model_name} mobile model \n {format_instruction}',
+    template = 'Give the specification of {model_name} mobile model, if it is not a correct model name,do not assuem it \n {format_instruction}',
     input_variables = ['model_name'],
     partial_variables = {'format_instruction' : parser.get_format_instructions()}
 )
 
-prompt = template.invoke({'model_name':'Googgle Pixel 6'})
+# prompt = template.invoke({'model_name':'Googgle Pixel 6'})
 
 # print(prompt)
 # result = model.invoke(prompt)
@@ -32,5 +32,5 @@ prompt = template.invoke({'model_name':'Googgle Pixel 6'})
 
 #invoke model using chain
 chain = template | model | parser
-result = chain.invoke({'model_name':'Oneplus Nord 4'})
+result = chain.invoke({'model_name':'Samsung Galaxy F62'})
 print(result)
