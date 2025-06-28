@@ -1,0 +1,73 @@
+city,time,temperature,description
+Mumbai,Now,28 °C,Passing clouds.
+Mumbai,00.00,27 °C,A few showers. Overcast.
+Mumbai,01.00,27 °C,A few showers. Overcast.
+Mumbai,02.00,27 °C,A few showers. Overcast.
+Mumbai,03.00,27 °C,Isolated tstorms. Overcast.
+Mumbai,04.00,27 °C,A few tstorms. Overcast.
+Mumbai,05.00,27 °C,A few tstorms. Overcast.
+Mumbai,06.00,27 °C,A few tstorms. Overcast.
+Mumbai,07.00,27 °C,A few tstorms. Overcast.
+Mumbai,08.00,27 °C,A few tstorms. Overcast.
+Mumbai,09.00,28 °C,Light showers. Overcast.
+Mumbai,10.00,28 °C,Thunderstorms. Overcast.
+Bangalore,Now,22 °C,Passing clouds.
+Bangalore,00.00,21 °C,Passing showers. Overcast.
+Bangalore,01.00,21 °C,Passing showers. Overcast.
+Bangalore,02.00,21 °C,Overcast.
+Bangalore,03.00,21 °C,Overcast.
+Bangalore,04.00,21 °C,Overcast.
+Bangalore,05.00,20 °C,Overcast.
+Bangalore,06.00,20 °C,Overcast.
+Bangalore,07.00,21 °C,Overcast.
+Bangalore,08.00,22 °C,Overcast.
+Bangalore,09.00,24 °C,Overcast.
+Bangalore,10.00,25 °C,Overcast.
+Pune,Now,25 °C,Passing clouds.
+Pune,00.00,23 °C,Passing showers. Overcast.
+Pune,01.00,23 °C,Passing showers. Overcast.
+Pune,02.00,23 °C,Passing showers. Overcast.
+Pune,03.00,23 °C,Passing showers. Overcast.
+Pune,04.00,22 °C,Passing showers. Overcast.
+Pune,05.00,22 °C,Passing showers. Cloudy.
+Pune,06.00,22 °C,Passing showers. Cloudy.
+Pune,07.00,23 °C,Passing showers. Mostly cloudy.
+Pune,08.00,24 °C,Passing showers. Broken clouds.
+Pune,09.00,25 °C,Passing showers. Broken clouds.
+Pune,10.00,26 °C,Passing showers. Mostly cloudy.
+Delhi,Now,29 °C,Fog.
+Delhi,00.00,30 °C,Overcast.
+Delhi,01.00,30 °C,Passing showers. Overcast.
+Delhi,02.00,30 °C,Passing showers. Overcast.
+Delhi,03.00,30 °C,Passing showers. Cloudy.
+Delhi,04.00,30 °C,Passing showers. Mostly cloudy.
+Delhi,05.00,30 °C,Passing showers. Mostly cloudy.
+Delhi,06.00,30 °C,Passing showers. Mostly cloudy.
+Delhi,07.00,31 °C,Passing showers. Cloudy.
+Delhi,08.00,32 °C,Passing showers. Overcast.
+Delhi,09.00,33 °C,Passing showers. Overcast.
+Delhi,10.00,34 °C,Passing showers. Overcast.
+Amritsar,Now,31 °C,Fog.
+Amritsar,00.00,29 °C,A few showers. Mostly cloudy.
+Amritsar,01.00,29 °C,Light showers. Broken clouds.
+Amritsar,02.00,28 °C,Light showers. Mostly cloudy.
+Amritsar,03.00,28 °C,Thunderstorms. Mostly cloudy.
+Amritsar,04.00,28 °C,Thunderstorms. Mostly cloudy.
+Amritsar,05.00,27 °C,Thundershowers. Mostly cloudy.
+Amritsar,06.00,27 °C,Thunderstorms. Cloudy.
+Amritsar,07.00,28 °C,Thunderstorms. Cloudy.
+Amritsar,08.00,29 °C,Thunderstorms. Overcast.
+Amritsar,09.00,29 °C,Thunderstorms. Overcast.
+Amritsar,10.00,30 °C,Thunderstorms. Overcast.
+Ludhiana,Now,33 °C,Thunderstorms. Overcast.
+Ludhiana,00.00,29 °C,Passing showers. Mostly cloudy.
+Ludhiana,01.00,29 °C,Thundershowers. Mostly cloudy.
+Ludhiana,02.00,28 °C,Isolated tstorms. Mostly cloudy.
+Ludhiana,03.00,28 °C,Isolated tstorms. Mostly cloudy.
+Ludhiana,04.00,28 °C,A few tstorms. Cloudy.
+Ludhiana,05.00,28 °C,A few tstorms. Cloudy.
+Ludhiana,06.00,28 °C,Thundershowers. Mostly cloudy.
+Ludhiana,07.00,28 °C,Thundershowers. Mostly cloudy.
+Ludhiana,08.00,29 °C,Thundershowers. Mostly cloudy.
+Ludhiana,09.00,29 °C,Thunderstorms. Mostly cloudy.
+Ludhiana,10.00,30 °C,Thunderstorms. Cloudy.
