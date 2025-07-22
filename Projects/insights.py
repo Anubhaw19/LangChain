@@ -28,17 +28,30 @@ df_time_str = df_time.to_string(index=False)
 
 model = ChatGoogleGenerativeAI(model = 'gemini-2.5-pro')
 
+campaign_context = ''' this is mccain frozen food brand, the campaign ran during mansoon on YouTube CTV, targetting female audience of age group between 25-44'''
 prompt = PromptTemplate(
-    template = 'write the temporal (day of week) commentary for my campign, based on this information: {data} \n do mention any possible reason behind any trend, keep the commentary short paragraph 2-3 points',
-    input_variables = ['data']
+    template = 'write the short merged temporal commentary for the campaign, analysing time of day and day of week data: {data} \n do mention any possible reason behind any trend, keep the commentary short paragraph 2-3 points. Addition to this here is the campaign context: \n {context}',
+    input_variables = ['data','context']
 )
 
 parser = StrOutputParser()
 
 chain = prompt | model | parser
-result = chain.invoke({'data':df_day_str})
+result = chain.invoke({'data':df_day_str+'\n'+df_time_str, 'context': campaign_context})
 
 print(result)
 
 #result:
-# Performance peaks significantly over the weekend, with Friday, Saturday, and Sunday delivering the highest impressions, views, and a strong View-Through Rate (VTR) of around 15%. This suggests the target audience has more leisure time and is more receptive to video content during their days off. Conversely, the campaign sees a dip in engagement efficiency mid-week, with Wednesday marking the lowest VTR (12.73%), likely as the audience is busier with work and daily routines, leading to lower attention spans.
+### Campaign Temporal Analysis
+
+# **Day of the Week Performance:**
+
+# The campaign saw a significant surge in viewership towards the weekend, with impressions and views peaking on Saturday. This trend is logical, as the target audience of females (25-44) likely has more leisure time for CTV viewing on weekends, especially during the monsoon season which encourages staying indoors. Interestingly, VTR was highest on Saturday, Sunday, and Monday (15.00%), suggesting that viewers are most receptive at the start of the week when planning meals and during their relaxed weekend family time, making them less likely to skip a relevant food ad.
+
+# **Time of Day Performance:**
+
+# Viewership volume peaked in the Evening, aligning with standard prime-time TV habits when the target audience is likely relaxing after their day. However, the highest audience engagement (VTR) occurred during the Morning and Afternoon (15.00%). This indicates that while reach is highest in the evening, the audience is more actively engaged and receptive to a McCain frozen food message earlier in the day, possibly while planning for lunch or dinner. The lower VTR in the evening and night, despite high impression volume, suggests viewers may be more focused on their chosen content and quicker to skip ads.
+
+
+#short commentary
+# The campaign's performance peaked over the weekend (Saturday/Sunday) and on Monday, which delivered the highest viewership and strongest VTR. This suggests the target audience of women is most receptive when planning meals for the week ahead or seeking convenient, cozy food options for family leisure time, a behavior amplified during the monsoon season. While evening viewing on CTV captured the largest audience volume, the ad's efficiency was significantly higher in the morning and afternoon, indicating a key window of opportunity when viewers are more actively engaged with food-related content and less likely to skip.
