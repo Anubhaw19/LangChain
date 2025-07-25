@@ -10,14 +10,14 @@ url = 'https://www.timeanddate.com/weather/india/bengaluru/hourly'
 loader  = WebBaseLoader(url)
 
 docs = loader.load()
-print(len(docs))
-print(docs[0].page_content)
+# print(len(docs))
+# print(docs[0].page_content)
 
 
 model = ChatGoogleGenerativeAI(model = 'gemini-2.5-pro')
 
 prompt = PromptTemplate(
-    template = 'answer the following question:\n {text} \n from the following texr - \n {text}',
+    template = 'answer the following question in one line:\n {question} \n from the following texr - \n {text}',
     input_variables = ['question','text']
 )
 
